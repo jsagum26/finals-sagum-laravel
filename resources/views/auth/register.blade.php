@@ -1,26 +1,35 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+<div class="card mb-3">
+    <div class="card-body">
+      <div class="pt-4 pb-2">
+        <h5 class="card-title text-center pb-0 fs-4">Register an Account</h5>
+        <p class="text-center small">Input your Credentials</p>
+      </div>
+      <form method="POST" action="{{ route('register') }}" class="mx-1 mx-md-4">
         @csrf
 
         <!-- Name -->
-        <div>
+        <div class="mt-4">
+            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-text-input id="name" class="form-control" type="text" name="name" :value="old('name')" required autofocus autocomplete="name"/>
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
+            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
+            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
             <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password" class="form-control"
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
@@ -30,9 +39,10 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
+            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+            <x-text-input id="password_confirmation" class="form-control"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" />
 
@@ -44,9 +54,12 @@
                 {{ __('Already registered?') }}
             </a>
 
-            <x-primary-button class="ms-4">
+            <x-primary-button class="btn btn-primary btn-lg">
                 {{ __('Register') }}
             </x-primary-button>
         </div>
     </form>
+    </div>
+  </div>
+
 </x-guest-layout>
